@@ -1,3 +1,5 @@
+import React from 'react';
+
 const ScrollView = (props) => {
   const styles = {
     position: 'absolute',

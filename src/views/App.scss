@@ -20,6 +20,7 @@ body {
   padding: 0;
   display: flex;
   align-items: stretch;
+  background: $grey-100;
 }
 
 a {
@@ -37,14 +38,9 @@ input, textarea {
 }
 
 :global(#content) {
-  background: $blue-grey-900;
   width: 100%;
   flex: 1;
   display: flex;
-  > div:first-child {
-    display: flex;
-    flex: 1;
-  }
 }
 
 :global(.Input) {

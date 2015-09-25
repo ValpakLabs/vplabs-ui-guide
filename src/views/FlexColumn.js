@@ -1,3 +1,5 @@
+import React from 'react';
+
 const defaultProps = {
   justify: 'space-between',
   dir: 'column',

@@ -1,4 +1,4 @@
-import colors, colors from '../../theme/colors';
+import colors from '../../theme/colors';
 
 function getDataTableStyles() {
   let base =  {
