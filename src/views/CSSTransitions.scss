@@ -1,0 +1,82 @@
+:global(.example-enter) {
+  opacity: 0;
+}
+
+:global(.example-enter.example-enter-active) {
+  opacity: 1;
+  transition: all .15s ease-out;
+}
+
+:global(.example-leave) {
+  opacity: 1;
+}
+
+:global(.example-leave.example-leave-active) {
+  opacity: 0.01;
+  transition: all .15s ease-out;
+}
+
+
+:global(.loadingbar-enter) {
+  opacity: 0;
+}
+
+:global(.loadingbar-enter.loadingbar-enter-active) {
+  opacity: 1;
+  transition: all .2s ease-out;
+}
+
+:global(.loadingbar-leave) {
+  opacity: 1;
+}
+
+:global(.loadingbar-leave.loadingbar-leave-active) {
+  opacity: 0.01;
+  transition: all .2s ease-out;
+}
+
+
+:global(.slideout-enter) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+:global(.slideout-enter.slideout-enter-active) {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all .3s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+}
+
+:global(.slideout-leave) {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+:global(.slideout-leave.slideout-leave-active) {
+  opacity: 0.01;
+  transform: translateX(20px);
+  transition: all .3s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+}
+
+
+:global(.dataTableTransition-enter) {
+  max-height: 0;
+  opacity: 0;
+}
+
+:global(.dataTableTransition-enter.dataTableTransition-enter-active) {
+  opacity: 1;
+  max-height: 200px;
+  transition: all .16s ease-in-out;
+}
+
+:global(.dataTableTransition-leave) {
+  opacity: 1;
+  max-height: 115px;
+}
+
+:global(.dataTableTransition-leave.dataTableTransition-leave-active) {
+  opacity: 0.01;
+  max-height: 0;
+  transition: all .16s ease-in-out;
+}

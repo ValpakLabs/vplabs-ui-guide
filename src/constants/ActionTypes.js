@@ -1,0 +1,4 @@
+export const TOGGLE_APP_SIDEBAR = 'TOGGLE_APP_SIDEBAR';
+export const LOAD_LOCATION = 'LOAD_LOCATION';
+export const START_LOADING = 'START_LOADING';
+export const STOP_LOADING = 'STOP_LOADING';

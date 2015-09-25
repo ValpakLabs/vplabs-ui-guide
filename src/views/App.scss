@@ -1,0 +1,120 @@
+@import '../theme/colors';
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic,300,300italic,500,500italic,900,900italic);
+@import 'CSSTransitions';
+@import 'Select';
+
+* {box-sizing: border-box;}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  * {
+    cursor: pointer;
+  }
+}
+
+input, textarea {
+  &:focus {
+    outline: none;
+  }
+}
+
+:global(#content) {
+  background: $blue-grey-900;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  > div:first-child {
+    display: flex;
+    flex: 1;
+  }
+}
+
+:global(.Input) {
+  width: 100%;
+  margin: 0;
+  
+  
+  font-size: 14px;
+  line-height: 30px;
+  color: rgba(0,0,0,0.84);
+  font-weight: 300;
+  
+  border: 0;
+  border: 1px solid $grey-300;
+  border-radius: 2px;
+
+  &:focus {
+    border-color: $indigo-200;
+  }
+
+  &[disabled], &[readonly] {
+    background: $grey-200!important;
+  }
+}
+
+
+:global(.TextArea) {
+  resize: vertical;
+  padding: 10px 8px;
+  line-height: 18px;
+}
+
+:global(.Sidebar a) {
+  &:hover {
+    color: $blue-grey-50!important;
+    i {
+      color: $blue-grey-400!important;
+    }
+  }
+}
+:global(.Sidebar a.active) {
+  color: $light-blue-400!important;
+  i {
+    color: $light-blue-400!important;
+  }
+  &:hover {
+    color: $light-blue-400;
+    i {
+      color: $light-blue-400!important;
+    }
+  }
+}
+
+:global(.nohover .hover-container) {
+  pointer-events: none;
+}
+
+:global(.hover-container) {
+  :global(.show-on-hover) {
+    transition: all .15s ease-out;
+    opacity: 0;
+  }
+
+  &:hover {
+    :global(.show-on-hover) {
+      opacity: 1;
+    }
+  }
+}
+
+:global(.nohover .hover-container) {
+  // pointer-events: none;
+}
