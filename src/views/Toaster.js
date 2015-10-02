@@ -5,7 +5,7 @@ import * as notificationActions from '../actions/notificationActions';
 import ReactDOM from 'react-dom';
 import Immutable from 'immutable';
 import {requireServerCss} from '../util';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Icon from './Icon';
 import colors from '../theme/colors';
 
@@ -91,7 +91,7 @@ class Toaster extends Component {
               id={`notification-${note.id}`}
               onClick={::this.handleDismissNotification}>
               <div style={styles.notification}>
-                <FlexRow justify='flex-start'>
+                <FlexBox justify='flex-start'>
                   <Icon
                     name={levelIcons[note.level.toLowerCase()]}
                     fill={levelColors[note.level.toLowerCase()]}
@@ -103,7 +103,7 @@ class Toaster extends Component {
                     {note.level}:
                   </div>
                   <div>{note.text}</div>
-                </FlexRow>
+                </FlexBox>
               </div>
             </div>
           )}

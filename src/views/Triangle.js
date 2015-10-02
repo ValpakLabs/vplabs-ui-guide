@@ -8,37 +8,48 @@ class Triangle extends React.Component {
   }
 
   render() {
-    let classes = cx('dui_Triangle', {
-      [this.props.className]: true,
-      'dui_Triangle--up': this.props.position === 'below',
-      'dui_Triangle--down': this.props.position === 'above',
-      'dui_Triangle--left': this.props.position === 'right',
-      'dui_Triangle--right': this.props.position === 'left'
-    });
+    let coords = '';
+    let isVertical = false;
+    let glyph = '';
+    let shadowOffset = '0px 0px';
+
+    if (this.props.position === 'above') {
+      coords = '0,0 20,0 10,10';
+      shadowOffset = '0px 1px';
+      glyph = '▼';
+    }
+    if (this.props.position === 'right') {
+      coords = '0,10 10,0 10,20';
+      isVertical = true;
+      shadowOffset = '-1px 1px';
+      glyph = '◀';
+    }
+    if (this.props.position === 'below') {
+      coords = '10,10 20,10 0,10';
+      shadowOffset = '0px 1px';
+      glyph = '▲';
+    }
+    if (this.props.position === 'left') {
+      coords = '0,10 10,0 10,10';
+      isVertical = true;
+      shadowOffset = '1px 1px';
+      glyph = '▶';
+    }
 
     const styles = {
+      textShadow: `${shadowOffset} 5px rgba(0,0,0,0.2)`,
+      lineHeight: 'normal',
+      color: this.props.color,
       position: 'absolute',
-      zIndex: 1,
-      filter: 'drop-shadow(0px 0px 4px rgba(#000, 0.1))',
-      borderStyle: 'solid',
-      borderColor: 'transparent',
-      width: 10,
-      height: 10,
-      borderWidth: 10,
-
-      borderBottomColor: this.props.position === 'below' ? this.props.color : 'transparent',
-      borderTopColor: this.props.position === 'above' ? this.props.color : 'transparent',
-      borderLeftColor: this.props.position === 'left' ? this.props.color : 'transparent',
-      borderRightColor: this.props.position === 'right'  ? this.props.color : 'transparent',
-
-      borderBottomWidth: this.props.position === 'above' ? 0 : 10,
-      borderTopWidth: this.props.position === 'below' ? 0 : 10,
-      borderLeftWidth: this.props.position === 'right' ? 0 : 10,
-      borderRightWidth: this.props.position === 'left'  ? 0 : 10
+      top: this.props.style.top,
+      left: this.props.style.left,
+      right: this.props.style.right,
+      bottom: this.props.style.bottom,
+      transform: isVertical ? 'scaleY(2)' : 'scaleX(2)'
     };
 
     return (
-      <div className={classes} style={{...styles, ...this.props.style}}></div>
+      <div style={styles}>{glyph}</div>
     );
   }
 

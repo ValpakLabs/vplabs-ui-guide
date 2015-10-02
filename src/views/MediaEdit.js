@@ -7,7 +7,7 @@ import Color from 'color';
 import * as mediaActions from '../actions/mediaActions';
 import * as locationActions from '../actions/locationActions';
 import ScrollView from './ScrollView';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import FlexColumn from './FlexColumn';
 import Flex from './Flex';
 import Text from './Text';
@@ -59,7 +59,7 @@ class MediaEdit extends Component {
             </FlexColumn>
           </div>
 
-          <FlexRow align='stretch' style={styles.imageInfo}>
+          <FlexBox align='stretch' style={styles.imageInfo}>
             <Flex style={{padding: '40px 80px'}}>
               <Input
                 name='title'
@@ -92,20 +92,20 @@ class MediaEdit extends Component {
                 value={`${config.appContext}/content/${image.fullsize && image.fullsize.path}`}
                 label='Image URL'
                 readOnly={true}/>
-              <FlexRow align='flex-start' justify='flex-start' style={{marginBottom: 6}}>
+              <FlexBox align='flex-start' justify='flex-start' style={{marginBottom: 6}}>
                 <Text size='normal' lineHeight='24px' weight='medium' width={90} color={colors.grey500}>File type</Text>
                 <Text size='normal' lineHeight='24px' weight='normal'>{image.mimeType && image.mimeType.split('/')[1]}</Text>
-              </FlexRow>
-              <FlexRow align='flex-start' justify='flex-start' style={{marginBottom: 6}}>
+              </FlexBox>
+              <FlexBox align='flex-start' justify='flex-start' style={{marginBottom: 6}}>
                 <Text size='normal' lineHeight='24px' weight='medium' width={90} color={colors.grey500}>File size</Text>
                 <Text size='normal' lineHeight='24px' weight='normal'>{Math.floor(image.fileSize && (image.fileSize / 1000) || 0) + ' kB'}</Text>
-              </FlexRow>
-              <FlexRow align='flex-start' justify='flex-start' style={{marginBottom: 0}}>
+              </FlexBox>
+              <FlexBox align='flex-start' justify='flex-start' style={{marginBottom: 0}}>
                 <Text size='normal' lineHeight='24px' weight='medium' width={90} color={colors.grey500}>Dimensions</Text>
                 <Text size='normal' lineHeight='24px' weight='normal'>{image.fullsize && (image.fullsize.width + ' x ' + image.fullsize.height)}</Text>
-              </FlexRow>
+              </FlexBox>
 
-              <FlexRow style={{marginTop: 40}}>
+              <FlexBox style={{marginTop: 40}}>
                 <Button
                   icon='save'
                   color={colors.lightgreen500}
@@ -117,9 +117,9 @@ class MediaEdit extends Component {
                   color={colors.red400}>
                   Delete
                 </Button>
-              </FlexRow>
+              </FlexBox>
             </div>
-          </FlexRow>
+          </FlexBox>
 
       </ScrollView>
     );

@@ -1,9 +1,44 @@
 import Color from 'color';
 import colors from '../../theme/colors';
 
+const presets = {
+  default: {
+    fill: 'transparent',
+    color: colors.black
+  },
+  info: {
+    color: colors.lightblue500
+  },
+  success: {
+    color: colors.lightgreen500
+  },
+  warn: {
+    color: colors.orange500
+  },
+  error: {
+    color: colors.red500
+  },
+  'info-fill': {
+    fill: colors.lightblue500,
+    color: colors.white
+  },
+  'success-fill': {
+    fill: colors.lightgreen500,
+    color: colors.white
+  },
+  'warn-fill': {
+    fill: colors.orange500,
+    color: colors.white
+  },
+  'error-fill': {
+    fill: colors.red500,
+    color: colors.white
+  }
+};
+
 function getButtonStyles(props) {
 
-  const {size, fab, color, push, shadow, children, fill, flex, disabled, width, height} = props;
+  const {size, fab, color, push, shadow, children, fill, flex, disabled, width, height} = {...props, ...getPresets(props.preset)};
 
   const _width = width ? width : fab ? size === 'tiny' ? 40 : 60 : 'auto';
   const _height = height ? height : fab ? size === 'tiny' ? 40 : 60 : size === 'tiny' ? 18 : 40;
@@ -69,6 +104,11 @@ function getButtonStyles(props) {
     text,
     modifiers
   };
+}
+
+function getPresets(preset) {
+  if (!preset) return {};
+  return presets[preset];
 }
 
 export default getButtonStyles;

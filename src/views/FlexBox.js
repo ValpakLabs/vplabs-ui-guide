@@ -1,19 +1,21 @@
 import React from 'react';
 
 const defaultProps = {
-  justify: 'space-between',
+  justify: 'flex-start',
+  align: 'flex-start',
   dir: 'row',
-  align: 'center',
-  flex: 1,
+  pad: 0,
+  flex: 'none',
   position: 'relative',
   wrap: 'nowrap'
 };
 
-const FlexRow = (props) => {
-  const {justify, align, dir, flex, position, wrap, children} = {...defaultProps, ...props};
+const FlexBox = (props) => {
+  const {pad, justify, align, dir, flex, position, wrap, children} = {...defaultProps, ...props};
 
   const styles = {
     display: 'flex',
+    padding: pad,
     flex: flex,
     flexWrap: wrap,
     alignItems: align,
@@ -28,4 +30,4 @@ const FlexRow = (props) => {
   );
 };
 
-export default FlexRow;
+export default FlexBox;

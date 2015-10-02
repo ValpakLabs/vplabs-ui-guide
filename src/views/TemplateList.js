@@ -10,7 +10,7 @@ import ScrollView from './ScrollView';
 import Icon from './Icon';
 import Input from './Input';
 import TextArea from './TextArea';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Flex from './Flex';
 import Dialog from './Dialog';
 import Text from './Text';
@@ -35,7 +35,7 @@ class TemplateList extends Component {
 
         <div style={{padding: '0 40px 100px 40px'}}>
 
-          <FlexRow style={{padding: '20px 0'}}>
+          <FlexBox style={{padding: '20px 0'}}>
 
             <Button
               style={{position: 'fixed', bottom: 40, right: 40}}
@@ -46,7 +46,7 @@ class TemplateList extends Component {
               onClick={e => this.props.createTemplate()}>
             </Button>
 
-          </FlexRow>
+          </FlexBox>
 
           <DataTable
             columns={[
@@ -61,11 +61,11 @@ class TemplateList extends Component {
             rowCells={[
               <Cell renderfn={item =>
                 <div>
-                  <FlexRow justify='flex-start' align='baseline' flex={1} style={{marginRight: '20px'}}>
+                  <FlexBox justify='flex-start' align='baseline' flex={1} style={{marginRight: '20px'}}>
                     <Link to={`/templates/${item._id}`}>
                       <Text weight='medium' size='large' color='darkblue'>{item.title}</Text>
                     </Link>
-                  </FlexRow>
+                  </FlexBox>
                   <Text size='small' lineHeight='18px' color='darkgrey' style={{paddingRight: 20, marginBottom: 12}}>{item.description}</Text>
                   <div className='show-on-hover' style={{lineHeight: 'normal'}}>
                     <Button size='tiny' icon='edit' color={colors.lightblue900} push='0 20px 0 0'>Edit</Button>

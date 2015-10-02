@@ -11,7 +11,7 @@ import * as userActions from '../actions/userActions';
 import * as locationActions from '../actions/locationActions';
 import colors, {getRgba} from '../theme/colors';
 import ScrollView from './ScrollView';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Flex from './Flex';
 import NotificationBanner from './NotificationBanner';
 import Text from './Text';

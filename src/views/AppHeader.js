@@ -5,7 +5,7 @@ import TimeoutTransitionGroup from './TimeoutTransitionGroup';
 import Link from './Link';
 import Header from './Header';
 import Icon from './Icon';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Button from './Button';
 import Text from './Text';
 import Gravatar from './Gravatar';
@@ -36,7 +36,7 @@ class AppHeader extends React.Component {
 
         <div style={{flex: 1, margin: '0 0px', transform: 'translate3d(0,0,0)'}}>
 
-          <FlexRow justify='flex-start' align='stretch'>
+          <FlexBox justify='flex-start' align='stretch'>
             <div style={{
               marginRight: this.props.sidebarIsOpen ? 48 : 20,
               marginLeft: this.props.sidebarIsOpen ? -60 : 8,
@@ -63,9 +63,9 @@ class AppHeader extends React.Component {
                     top: '50%',
                   }}>
 
-                  <FlexRow justify='flex-start' style={{transform: 'translateY(-50%)'}}>
+                  <FlexBox justify='flex-start' style={{transform: 'translateY(-50%)'}}>
                     {location.get('displayName').map((branch, i) =>
-                      <FlexRow justify='flex-start' flex='none' key={i}>
+                      <FlexBox justify='flex-start' flex='none' key={i}>
                         {i !== 0 ? <Icon name='chevron_right' fill={colors.bluegrey200} pushRight={5} size={18} pushLeft={5}/> : null}
                         <Text
                           color={colors.bluegrey900}
@@ -73,19 +73,19 @@ class AppHeader extends React.Component {
                           weight='thin'>
                           {branch}
                         </Text>
-                      </FlexRow>
+                      </FlexBox>
                     )}
-                  </FlexRow>
+                  </FlexBox>
 
                 </div>
               </TimeoutTransitionGroup>
             </div>
-          </FlexRow>
+          </FlexBox>
 
         </div>
 
         {user.get('isLoggedIn') ?
-          <FlexRow
+          <FlexBox
             id='flyout-trigger_userAvatar'
             justify='flex-start'
             flex='none'
@@ -104,7 +104,7 @@ class AppHeader extends React.Component {
               weight='medium'>
               {user.get('fullname')}
             </Text>
-          </FlexRow> :
+          </FlexBox> :
           <Link to='/login'>
             <Button icon='face' color='rgba(0,0,0,0.54)'>Login</Button>
           </Link>}

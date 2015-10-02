@@ -7,7 +7,7 @@ import {requireServerCss, requireServerImage} from '../util';
 import colors, colors from '../theme/colors';
 import Box from './Box';
 import Text from './Text';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Input from './Input';
 import Button from './Button';
 import Icon from './Icon';
@@ -63,7 +63,7 @@ class Login extends React.Component {
             left: '50%',
             marginLeft: '-100px'}}/>
 
-        <FlexRow
+        <FlexBox
           ref='login'
           justify='center'
           flex='none'
@@ -122,7 +122,7 @@ class Login extends React.Component {
               {error}
             </div>
           }
-        </FlexRow>
+        </FlexBox>
 
       </div>
     );

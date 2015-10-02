@@ -9,7 +9,7 @@ import colors from '../theme/colors';
 import DataTable, {Cell} from './DataTable';
 import ScrollView from './ScrollView';
 import Icon from './Icon';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Dialog from './Dialog';
 import Text from './Text';
 import Select from './Select';
@@ -33,9 +33,9 @@ class PageList extends Component {
 
         <div style={{padding: '0 40px 100px 40px'}}>
 
-          <FlexRow style={{padding: '20px 0'}}>
+          <FlexBox style={{padding: '20px 0'}}>
 
-            <FlexRow justify='flex-start'>
+            <FlexBox justify='flex-start'>
               <div style={{width: 200, marginRight: 10}}>
                 <Select
                   name='status'
@@ -48,7 +48,7 @@ class PageList extends Component {
                     {value: 'Pending Review', label: 'Pending Review'}
                   ]}/>
               </div>
-            </FlexRow>
+            </FlexBox>
 
             <div>
               <Button
@@ -70,7 +70,7 @@ class PageList extends Component {
               onClick={e => this.props.createPage()}>
             </Button>
 
-          </FlexRow>
+          </FlexBox>
 
           <DataTable
             columns={[
@@ -88,14 +88,14 @@ class PageList extends Component {
             rowCells={[
               <Cell renderfn={item =>
                 <div style={{display: pages.get('expandedListDisplay') ? 'block' : 'flex', justifyContent: 'flex-start', alignItems: 'center'}}>
-                  <FlexRow justify='flex-start' align='baseline' flex={pages.get('expandedListDisplay') ? 1 : 'none'} style={{marginRight: '20px'}}>
+                  <FlexBox justify='flex-start' align='baseline' flex={pages.get('expandedListDisplay') ? 1 : 'none'} style={{marginRight: '20px'}}>
                     <Link to={`/pages/${item._id}`}>
                       <Text weight='medium' size='large' color='darkblue'>{item.title}</Text>
                     </Link>
                     {item.status !== 'Published' ?
                       <Text weight='bold' size='normal' push='0 0 0 0.5em' color={colors.grey800}>// {item.status}</Text>
                       : null}
-                  </FlexRow>
+                  </FlexBox>
 
                   {pages.get('expandedListDisplay') ?
                     <Text size='small' lineHeight='18px' color='darkgrey' style={{paddingRight: 20, marginBottom: 12}}>{item.description}</Text>

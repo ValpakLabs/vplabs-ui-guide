@@ -5,11 +5,12 @@ class Header extends React.Component {
   static defaultProps = {
     bgcolor: '#FFF',
     color: colors.bluegrey900,
-    fixed: false
+    fixed: false,
+    raised: true
   };
 
   render() {
-    const {bgcolor, color, fixed} = this.props;
+    const {bgcolor, color, fixed, raised} = this.props;
 
     const style = {
       minHeight: 64,
@@ -20,7 +21,7 @@ class Header extends React.Component {
       position: fixed ? 'absolute' : 'relative',
       background: bgcolor,
       color: color,
-      boxShadow: '0px 1px 5px rgba(0,0,0,0.3)'
+      boxShadow: raised ? '0px 1px 5px rgba(0,0,0,0.3)' : 'none'
     };
 
     return (

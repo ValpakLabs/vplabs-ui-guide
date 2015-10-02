@@ -13,7 +13,7 @@ import PageEditSidebar from './PageEditSidebar.js';
 import FittedPage from './FittedPage.js';
 import PageEditForm from './PageEditForm';
 import ScrollView from './ScrollView';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Flex from './Flex';
 import Header from './Header';
 import Text from './Text';
@@ -75,7 +75,7 @@ class PageEdit extends Component {
             <Tab label='Widgets'/>
           </Tabs>
         </Header>
-        <FlexRow align='stretch'>
+        <FlexBox align='stretch'>
           <Flex>
             <ScrollView>
               <AltTab ref='tab1' selected={this.state.selectedTab === 0}>
@@ -88,7 +88,7 @@ class PageEdit extends Component {
 
               <AltTab ref='tab2' selected={this.state.selectedTab === 1}>
                 <div style={{width: '100%'}}>
-                  <FlexRow style={{padding: 40}}>
+                  <FlexBox style={{padding: 40}}>
                     <Text flexAlign='center' weight='light' size='xlarge' color='darkgrey'>
                       <Icon name='subject' size={24} pushRight={12}/> Content Fields
                     </Text>
@@ -99,7 +99,7 @@ class PageEdit extends Component {
                       onClick={e => this.addEntity('fields', {_id: uuid.raw()})}>
                       Add Field
                     </Button>
-                  </FlexRow>
+                  </FlexBox>
                   <div style={{padding: '0 40px'}}>
                     {page.get('fields') && page.get('fields').map((field, i) =>
                       <ContentField
@@ -115,7 +115,7 @@ class PageEdit extends Component {
 
               <AltTab ref='tab3' selected={this.state.selectedTab === 2}>
                 <div style={{width: '100%'}}>
-                  <FlexRow style={{padding: 40}}>
+                  <FlexBox style={{padding: 40}}>
                     <Text flexAlign='center' weight='light' size='xlarge' color='darkgrey'>
                       <Icon name='collections' size={24} pushRight={12}/> Images
                     </Text>
@@ -126,7 +126,7 @@ class PageEdit extends Component {
                       onClick={::this.toggleGalleryModal}>
                       Add Image
                     </Button>
-                  </FlexRow>
+                  </FlexBox>
                   <div style={{padding: '0 40px'}}>
                     {page.get('images') && page.get('images').map((image, i) =>
                       <ImageField
@@ -170,7 +170,7 @@ class PageEdit extends Component {
               Are you sure you want to delete this page?
             </Text>
           </Dialog>
-        </FlexRow>
+        </FlexBox>
       </FittedPage>
     );
   }
@@ -196,10 +196,10 @@ class PageEdit extends Component {
           flexDirection: 'column'
         }}>
         <div style={{padding: '16px 12px', borderBottom: `0px solid ${colors.grey300}`}}>
-          <FlexRow>
+          <FlexBox>
             <div style={{margin: '0 12px', fontWeight: 400, fontSize: 18}}>Add Images</div>
             <Button icon='close' color={colors.bluegrey300} onClick={::this.toggleGalleryModal}/>
-          </FlexRow>
+          </FlexBox>
         </div>
 
         <MediaLibrary

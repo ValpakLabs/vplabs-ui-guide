@@ -2,7 +2,7 @@ import React, {PropTypes, Component} from 'react';
 import {colors, getRgba} from '../theme/colors';
 import Immutable from 'immutable';
 import moment from 'moment';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Flex from './Flex';
 import Text from './Text';
 import Label from './Label';
@@ -59,23 +59,23 @@ class PageEditSidebar extends Component {
         <div style={sidebarStyles}>
 
           <div style={{marginBottom: 20}}>
-            <FlexRow align='flex-start' justify='flex-start' style={{marginBottom: 6}}>
+            <FlexBox align='flex-start' justify='flex-start' style={{marginBottom: 6}}>
               <Label width={70}>Author</Label>
               <Text {...ddAttrs}>{page.author || user.username}</Text>
-            </FlexRow>
+            </FlexBox>
 
             {page._id ?
-              <FlexRow align='flex-start' justify='flex-start' style={{marginBottom: 6}}>
+              <FlexBox align='flex-start' justify='flex-start' style={{marginBottom: 6}}>
                 <Label width={70}>Created</Label>
                 <Text {...ddAttrs}>{moment(page.created).format(dateFormat)}</Text>
-              </FlexRow>
+              </FlexBox>
             : null}
 
             {page._id ?
-              <FlexRow align='flex-start' justify='flex-start' style={{marginBottom: 0}}>
+              <FlexBox align='flex-start' justify='flex-start' style={{marginBottom: 0}}>
                 <Label width={70}>Modified</Label>
                 <Text {...ddAttrs}>{moment(page.modified).format(dateFormat)}</Text>
-              </FlexRow>
+              </FlexBox>
             : null}
 
           </div>
@@ -95,7 +95,7 @@ class PageEditSidebar extends Component {
             onChange={::this.props.onSetTemplate}/>
 
           <div style={{width: 220, margin: '0 0 20px 0', position: 'fixed', bottom: '0'}}>
-            <FlexRow justify='space-between'>
+            <FlexBox justify='space-between'>
               <Button
                 icon='save'
                 disabled={!page.hasLocalEdits}
@@ -108,7 +108,7 @@ class PageEditSidebar extends Component {
                 disabled={!page._id}
                 color={colors.red700}
                 onClick={::this.props.onDeletePageClick}>Delete</Button>
-            </FlexRow>
+            </FlexBox>
           </div>
 
         </div>

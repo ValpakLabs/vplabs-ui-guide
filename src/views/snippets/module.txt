@@ -1,0 +1,12 @@
+import React from 'react';
+import {FlexBox, Text} from 'vplabs-ui';
+
+class App extends React.Component {
+  render() {
+    return (
+      <FlexBox>
+        <Text>Hello, World!</Text>
+      </FlexBox>
+    );
+  }
+}

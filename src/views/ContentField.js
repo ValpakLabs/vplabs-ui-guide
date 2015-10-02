@@ -2,7 +2,7 @@ import React, {PropTypes, Component} from 'react';
 import Immutable from 'immutable';
 import colors from '../theme/colors';
 import Select from './Select';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Flex from './Flex';
 import Input from './Input';
 import Text from './Text';
@@ -49,7 +49,7 @@ class ContentField extends Component {
             onClick={e => this.handleRemove(field)}/>
         </div>
 
-        <FlexRow style={{marginBottom: 24, maxWidth: 1000}}>
+        <FlexBox style={{marginBottom: 24, maxWidth: 1000}}>
           <Flex flex={1}>
             <Select
               label='Type'
@@ -73,7 +73,7 @@ class ContentField extends Component {
               noResultsText='No unsued zones. Add some more.'
               onChange={::this.handleChange}/>
           </Flex>
-        </FlexRow>
+        </FlexBox>
 
         <div>
           {!field.get('type') || field.get('type') === 'text' ?

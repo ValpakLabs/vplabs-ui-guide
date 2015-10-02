@@ -8,15 +8,24 @@ class Flyout extends Component {
   constructor(props, context) {
     super(props, context);
     this.handleClickAway = this.handleClickAway.bind(this);
+    this.hide = this.hide.bind(this);
     this.state = {
       active: false,
-      isHiding: true
+      isHiding: true,
+      target: null
     };
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.active && !this.state.active)
+      window.removeEventListener('resize', this.hide);
+    if (!prevState.active && this.state.active)
+      window.addEventListener('resize', this.hide);
   }
 
   handleClickAway(e) {
     var parent = ReactDOM.findDOMNode(this.refs.parent);
-    var triggerEl = document.getElementById(this.props.target);
+    var triggerEl = this.state.target;
     if (this.props.closeOnClick) {
       setTimeout(() => this.hide());
       return;
@@ -42,10 +51,10 @@ class Flyout extends Component {
   render() {
     if (typeof document === 'undefined')
       return null;
-    if (!document.getElementById(this.props.target) || !this.state.active)
+    if (!this.state.target || !this.state.active)
       return null;
 
-    let { flyoutPosition, trianglePosition } = getFlyoutStyles(this.props, this.getTargetBounds());
+    let { flyoutPosition, trianglePosition, adjustedPosition } = getFlyoutStyles(this.props, this.getTargetBounds());
 
     const styles = {
       base: {
@@ -57,7 +66,7 @@ class Flyout extends Component {
         display: this.state.active ? 'block' : 'none',
         position: 'fixed',
         zIndex: 999,
-        boxShadow: '0px 3px 16px rgba(0,0,0, 0.2)'
+        boxShadow: '0px 1px 5px rgba(0,0,0, 0.2)'
       },
       inner: {
         width: this.props.width,
@@ -82,7 +91,7 @@ class Flyout extends Component {
             transform: `scale(${interpolation.scaleX.val}, ${interpolation.scaleY.val})`,
             opacity: interpolation.opacity.val
           }}>
-            <Triangle color={this.props.bgcolor} ref='triangle' position={this.props.position} style={trianglePosition}/>
+            <Triangle color={this.props.bgcolor} ref='triangle' position={adjustedPosition} style={trianglePosition}/>
             <div style={styles.inner}>
               {this.props.children}
             </div>
@@ -92,10 +101,10 @@ class Flyout extends Component {
     );
   }
 
-  show() {
+  show(target) {
     document.addEventListener('click', this.handleClickAway, true);
     clearTimeout(this.timeout);
-    this.setState({active: true}, () => {
+    this.setState({active: true, target}, () => {
       this.setState({isHiding: false});
     });
   }
@@ -105,15 +114,15 @@ class Flyout extends Component {
     this.setState({isHiding: true});
     this.timeout = setTimeout(() => {
       if (this.state.active)
-        this.setState({active: false});
+        this.setState({active: false, target: null});
     }, 500);
   }
 
   getTargetBounds() {
-    var targetEl = document.getElementById(this.props.target);
+    var targetEl = this.state.target;
     if (!targetEl) return;
-    var targetElStyles = getComputedStyle(targetEl)
-    var targetElBounds = targetEl.getBoundingClientRect()
+    var targetElStyles = getComputedStyle(targetEl);
+    var targetElBounds = targetEl.getBoundingClientRect();
     targetElBounds.top - targetElStyles.marginTop;
     targetElBounds.left - targetElStyles.marginLeft;
     targetElBounds.left - targetElStyles.marginBottom;

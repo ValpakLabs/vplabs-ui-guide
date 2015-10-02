@@ -10,7 +10,7 @@ import * as locationActions from '../actions/locationActions';
 import {colors, getRgba} from '../theme/colors';
 import FittedPage from './FittedPage.js';
 import ScrollView from './ScrollView';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Flex from './Flex';
 import Header from './Header';
 import Text from './Text';
@@ -67,7 +67,7 @@ class TemplateEdit extends Component {
     return (
       <FittedPage>
 
-        <FlexRow align='stretch'>
+        <FlexBox align='stretch'>
           <Flex>
             <ScrollView>
 
@@ -94,7 +94,7 @@ class TemplateEdit extends Component {
 
           <div style={sidebarStyles}>
             <div style={{width: 220, margin: '0 0 20px 0', position: 'fixed', bottom: '0'}}>
-              <FlexRow justify='space-between'>
+              <FlexBox justify='space-between'>
                 <Button
                   icon='save'
                   disabled={template && !template.get('hasLocalEdits')}
@@ -107,10 +107,10 @@ class TemplateEdit extends Component {
                   disabled={template && !template.get('_id')}
                   color={colors.red700}
                   onClick={::this.handleDeleteClick}>Delete</Button>
-              </FlexRow>
+              </FlexBox>
             </div>
           </div>
-        </FlexRow>
+        </FlexBox>
 
       </FittedPage>
     );

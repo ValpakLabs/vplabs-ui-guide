@@ -8,7 +8,7 @@ import {
 const initialState = {
   loading: false,
   sidebar: {
-    open: true
+    open: false
   }
 };
 

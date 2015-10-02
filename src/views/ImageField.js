@@ -2,7 +2,7 @@ import React, {PropTypes, Component} from 'react';
 import Immutable from 'immutable';
 import colors from '../theme/colors';
 import Select from './Select';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Flex from './Flex';
 import Button from './Button';
 import Input from './Input';
@@ -32,7 +32,7 @@ class ImageField extends Component {
     };
 
     return (
-      <FlexRow
+      <FlexBox
         className='hover-container'
         align='flex-start'
         justify='flex-start'
@@ -44,12 +44,12 @@ class ImageField extends Component {
             maxHeight={200}
             push='0 0 20px 0'
             src={`/content/${image.get('fullsize').get('path')}`}/>
-          <FlexRow justify='center'>
+          <FlexBox justify='center'>
             <Text push='0 5px 0 0' color='lightgrey'>Dimensions:</Text>
             <Text weight='medium'>{image.get('fullsize').get('width')} x {image.get('fullsize').get('height')}</Text>
-          </FlexRow>
+          </FlexBox>
 
-          <FlexRow justify='center' className='show-on-hover' style={{margin: '5px auto 0px auto'}}>
+          <FlexBox justify='center' className='show-on-hover' style={{margin: '5px auto 0px auto'}}>
             <Button size='tiny' color={colors.lightblue900} push='0 10px'>View</Button>
             <span> | </span>
             <Button size='tiny' color={colors.lightblue900} push='0 10px'>Edit</Button>
@@ -61,12 +61,12 @@ class ImageField extends Component {
               push='0 10px'>
               Remove
             </Button>
-          </FlexRow>
+          </FlexBox>
         </div>
 
         <Flex>
 
-          <FlexRow wrap='wrap'>
+          <FlexBox wrap='wrap'>
             <Flex flex='1 1 240px'>
               <div style={{margin: '0 10px 24px 10px'}}>
                 <Select
@@ -86,7 +86,7 @@ class ImageField extends Component {
                 placeholder='Add an alternative text attribute'
                 onChange={::this.handleChange}/>
             </Flex>
-          </FlexRow>
+          </FlexBox>
           <Input
             push='0 10px 24px 10px'
             name='linkHref'
@@ -95,7 +95,7 @@ class ImageField extends Component {
             placeholder='Add a url to visit when image is clicked'
             onChange={::this.handleChange}/>
 
-          <FlexRow wrap='wrap'>
+          <FlexBox wrap='wrap'>
             <Flex flex='1 1 350px'>
               <Switch
                 labelFirst={false}
@@ -116,10 +116,10 @@ class ImageField extends Component {
                 name='social'
                 onChange={::this.handleChange}/>
             </Flex>
-          </FlexRow>
+          </FlexBox>
         </Flex>
 
-      </FlexRow>
+      </FlexBox>
     );
   }
 

@@ -6,7 +6,7 @@ import Text from './Text';
 import Icon from './Icon';
 import TextArea from './TextArea';
 import Button from './Button';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Flex from './Flex';
 import moment from 'moment';
 
@@ -31,7 +31,7 @@ class PageEditForm extends Component {
             <Icon name='description' size={24} pushRight={12}/> Basic Info
           </Text>
 
-          <FlexRow wrap='wrap'>
+          <FlexBox wrap='wrap'>
             <Flex flex='2 1 250px'>
               <Input
                 push='0 10px 24px 10px'
@@ -48,7 +48,7 @@ class PageEditForm extends Component {
                 value={page.slug}
                 onChange={::this.handlePageEdit}/>
             </Flex>
-          </FlexRow>
+          </FlexBox>
           <TextArea
             push='0 10px'
             label='Description'
@@ -63,7 +63,7 @@ class PageEditForm extends Component {
             <Icon name='share' size={24} pushRight={12}/> Open Graph Tags
           </Text>
 
-          <FlexRow wrap='wrap'>
+          <FlexBox wrap='wrap'>
             <Flex flex='2 1 250px'>
               <Input
                 push='0 10px 24px 10px'
@@ -80,7 +80,7 @@ class PageEditForm extends Component {
                 value={social.og_url}
                 onChange={::this.handlePageEdit}/>
             </Flex>
-          </FlexRow>
+          </FlexBox>
           <TextArea
             push='0 10px'
             label='Open Graph Description'

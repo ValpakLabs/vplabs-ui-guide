@@ -9,7 +9,7 @@ import colors from '../theme/colors';
 import {dataTableStyles} from './styles';
 import ScrollView from './ScrollView';
 import Icon from './Icon';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Flex from './Flex';
 import Picture from './Picture';
 import Text from './Text';
@@ -52,7 +52,7 @@ class Dashboard extends Component {
     return (
       <ScrollView>
 
-          <FlexRow
+          <FlexBox
             align='center'
             style={{
               padding: '40px 40px',
@@ -66,8 +66,8 @@ class Dashboard extends Component {
               Hello, {me.get('fullname').split(' ')[0]}.
             </Text>
 
-            <FlexRow justify='center' flex='none'>
-              <FlexRow
+            <FlexBox justify='center' flex='none'>
+              <FlexBox
                 justify='center'
                 dir='column'
                 flex='none'
@@ -94,9 +94,9 @@ class Dashboard extends Component {
                     Pages
                   </Text>
                 </Link>
-              </FlexRow>
+              </FlexBox>
 
-              <FlexRow
+              <FlexBox
                 justify='center'
                 dir='column'
                 flex='none'
@@ -122,9 +122,9 @@ class Dashboard extends Component {
                     Users
                   </Text>
                 </Link>
-              </FlexRow>
-            </FlexRow>
-          </FlexRow>
+              </FlexBox>
+            </FlexBox>
+          </FlexBox>
 
       </ScrollView>
     );

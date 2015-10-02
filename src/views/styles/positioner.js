@@ -17,7 +17,9 @@ export default {
     let flyoutTransformOriginX = 0;
     let flyoutTransformOriginY = 0;
 
-    let flyoutBounds = getFlyoutBounds(position, targetBounds, width, triangleWidth + offset);
+    let {flyoutBounds, adjustedPosition} = getFlyoutBounds(position, targetBounds, width, triangleWidth + offset);
+
+    position = adjustedPosition;
 
     if (position === 'above' || position === 'below')
       triLeft = Math.floor(Math.abs(flyoutBounds.left - targetBounds.left) + (targetBounds.width/2) - (triangleWidth));
@@ -53,7 +55,6 @@ export default {
         left: flyoutBounds.left,
         transformOrigin: `${flyoutTransformOriginX} ${flyoutTransformOriginY}`
       },
-
       trianglePosition: {
         top: triTop,
         bottom: triBottom,
@@ -62,7 +63,8 @@ export default {
         width: triangleWidth,
         height: triangleHeight,
         borderWidth: triangleWidth
-      }
+      },
+      adjustedPosition
     };
   }
 
@@ -82,6 +84,8 @@ function getFlyoutBounds(_position, targetBounds, width, _offset) {
     below: {},
     left: {}
   };
+
+  let adjustedPosition = _position;
 
   flyoutBoundaries.above.top = 'auto';
   flyoutBoundaries.above.bottom = Math.abs(targetBounds.bottom - screenHeight) + targetBounds.height + _offset;
@@ -112,14 +116,21 @@ function getFlyoutBounds(_position, targetBounds, width, _offset) {
   }
 
   if (_position === 'right') {
-    if (flyoutBoundaries.right.left + width > screenWidth) 
-      return getFlyoutBounds('left');
+    if (flyoutBoundaries.right.left + width > screenWidth) {
+      adjustedPosition = 'left';
+      return getFlyoutBounds('left', targetBounds, width, _offset);
+    }
   }
 
   if (_position === 'left') {
-    if (flyoutBoundaries.left.left < 0) 
-      return getFlyoutBounds('right');
+    if (flyoutBoundaries.left.left < 0) {
+      adjustedPosition = 'right';
+      return getFlyoutBounds('right', targetBounds, width, _offset);
+    }
   }
 
-  return flyoutBoundaries[_position];
+  return {
+    flyoutBounds: flyoutBoundaries[_position],
+    adjustedPosition
+  };
 }

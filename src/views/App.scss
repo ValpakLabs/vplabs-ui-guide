@@ -31,6 +31,10 @@ a {
   }
 }
 
+:global(a.link) {
+  color: $light-blue-500;
+}
+
 input, textarea {
   &:focus {
     outline: none;

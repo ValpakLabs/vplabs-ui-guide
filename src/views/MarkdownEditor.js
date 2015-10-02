@@ -4,7 +4,7 @@ import {requireServerCss, getInputSelection} from '../util';
 import colors from '../theme/colors';
 import Remarkable from 'remarkable';
 import Switch from './Switch';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Flex from './Flex';
 import Text from './Text';
 import Icon from './Icon';
@@ -113,13 +113,13 @@ class MarkdownEditor extends Component {
       <div style={styles.base}>
 
         <div style={styles.header}>
-          <FlexRow>
+          <FlexBox>
             <Text {...headerProps}>{this.props.title}</Text>
             <Button
               color={this.state.fullscreen ? colors.blue500 : colors.grey600}
               icon={this.state.fullscreen ? 'fullscreen_exit' : 'fullscreen'}
               onClick={::this.toggleFullscreen} />
-          </FlexRow>
+          </FlexBox>
         </div>
 
         <div style={styles.splitWrapper}>

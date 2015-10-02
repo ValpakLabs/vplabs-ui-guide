@@ -9,7 +9,7 @@ import Gallery from './Gallery';
 import ScrollView from './ScrollView';
 import Input from './Input';
 import Switch from './Switch';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Flex from './Flex';
 import Icon from './Icon';
 import Button from './Button';

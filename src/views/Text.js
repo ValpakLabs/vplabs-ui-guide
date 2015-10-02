@@ -71,7 +71,7 @@ class Text extends React.Component {
 
     const style = {
       fontWeight: weights[weight],
-      fontSize: sizes[size],
+      fontSize: sizes[size] || size,
       textTransform: transform,
       textAlign: align,
       margin: push,

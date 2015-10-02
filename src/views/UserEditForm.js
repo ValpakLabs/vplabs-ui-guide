@@ -1,7 +1,7 @@
 import React, {PropTypes, Component} from 'react';
 import colors from '../theme/colors';
 import ScrollView from './ScrollView';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Flex from './Flex';
 import Text from './Text';
 import Icon from './Icon';
@@ -38,7 +38,7 @@ class UserEditForm extends Component {
         <ScrollView>
           <div style={{padding: 40}}>
 
-            <FlexRow justify='center' align='flex-start'>
+            <FlexBox justify='center' align='flex-start'>
               <div style={{marginRight: 40}}>
                 <Gravatar size={180} email={user.get('email')}/>
               </div>
@@ -99,7 +99,7 @@ class UserEditForm extends Component {
                 </div>
 
               </div>
-            </FlexRow>
+            </FlexBox>
 
           </div>
         </ScrollView>

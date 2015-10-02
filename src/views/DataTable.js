@@ -5,7 +5,7 @@ import colors from '../theme/colors.js';
 import {dataTableStyles} from './styles';
 import ScrollView from './ScrollView';
 import Icon from './Icon';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Flex from './Flex';
 import Picture from './Picture';
 import Text from './Text';

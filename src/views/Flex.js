@@ -1,26 +1,26 @@
 import React from 'react';
 
-class Flex extends React.Component {
-  static defaultProps = {
-    width: '100%',
-    height: '100%',
-    flex: 1,
-    push: 0,
-    position: 'relative'
-  }
+const defaultProps = {
+  width: '100%',
+  height: '100%',
+  push: 0,
+  align: 'auto',
+  flex: 1,
+  position: 'relative'
+};
 
-  render() {
-    const {flex, position, push} = this.props;
+const Flex = (props) => {
+  const {flex, position, align, push} = {...defaultProps, ...props};
 
-    const styles = {
-      flex: flex,
-      margin: push,
-      position
-    };
+  const styles = {
+    margin: push,
+    alignSelf: align,
+    position: position,
+    flex: flex,
+    ...props.style
+  };
 
-    return <div style={{...styles, ...this.props.style}}>{this.props.children}</div>;
-  }
-
-}
+  return <div style={styles}>{props.children}</div>;
+};
 
 export default Flex;

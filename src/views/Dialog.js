@@ -4,7 +4,7 @@ import Color from 'color';
 import colors from '../theme/colors';
 import Icon from './Icon';
 import Button from './Button';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 
 class Dialog extends Component {
   constructor(props, context) {
@@ -75,7 +75,7 @@ class Dialog extends Component {
             {this.state.children}
           </div>
 
-          <FlexRow justify='flex-end' style={styles.footer}>
+          <FlexBox justify='flex-end' style={styles.footer}>
             <Button
               color={this.props.cancelColor}
               nohover={true}
@@ -88,7 +88,7 @@ class Dialog extends Component {
               onClick={::this.handleConfirmClick}>
               {this.props.confirmText}
             </Button>
-          </FlexRow>
+          </FlexBox>
         </div>
 
       </div>

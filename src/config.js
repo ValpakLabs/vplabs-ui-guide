@@ -1,6 +1,6 @@
 module.exports = {
   development: {
-    appContext: '/balefire-savoo',
+    appContext: '',
     isProduction: false,
     port: process.env.PORT || 3000
   },

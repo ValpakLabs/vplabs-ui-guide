@@ -1,5 +1,5 @@
 import React, {PropTypes, Component} from 'react';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Icon from './Icon';
 import colors from '../theme/colors';
 
@@ -30,13 +30,13 @@ class NotificationBanner extends Component {
 
     return (
       <div style={styles.base}>
-        <FlexRow>
-          <FlexRow justify='flex-start'>
+        <FlexBox>
+          <FlexBox justify='flex-start'>
             <Icon name={levelIcons[level]}/>
             <div style={styles.text}>{text}</div>
-          </FlexRow>
+          </FlexBox>
           {this.props.children}
-        </FlexRow>
+        </FlexBox>
       </div>
     );
   }

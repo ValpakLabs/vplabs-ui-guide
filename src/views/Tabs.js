@@ -20,6 +20,7 @@ class Tabs extends Component {
   render() {
     const styles = {
       base: {
+        width: '100%',
         ...this.props.wrapperStyle
       },
       navigation: {

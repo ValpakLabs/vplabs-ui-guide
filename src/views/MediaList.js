@@ -11,7 +11,7 @@ import colors, {colors, getRgba} from '../theme/colors';
 import {dataTableStyles} from './styles';
 import ScrollView from './ScrollView';
 import Icon from './Icon';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Flex from './Flex';
 import Picture from './Picture';
 import Text from './Text';
@@ -49,8 +49,8 @@ class MediaList extends Component {
 
         <div style={{padding: '0 40px 100px 40px'}}>
 
-        <FlexRow style={{padding: '20px 0'}}>
-          <FlexRow justify='flex-start'>
+        <FlexBox style={{padding: '20px 0'}}>
+          <FlexBox justify='flex-start'>
             <div style={{width: 180, marginRight: 10}}>
               <Select
                 name='statusFilter'
@@ -73,7 +73,7 @@ class MediaList extends Component {
                   {value: 'pending', label: 'Pending Review'}
                 ]}/>
             </div>
-          </FlexRow>
+          </FlexBox>
           <div>
             <Button
               color={this.props.media.get('galleryView') ? colors.grey600 : colors.blue500}
@@ -92,7 +92,7 @@ class MediaList extends Component {
             fill={colors.red700}
             color='white'
             onClick={::this.showModal}/>
-        </FlexRow>
+        </FlexBox>
 
         {this.props.media.get('galleryView') ?
           <Gallery
@@ -130,7 +130,7 @@ class MediaList extends Component {
                   push='0 30px 0 0'
                   src={`/content/${image.thumbnail.path}`}/>
 
-                <FlexRow dir='column' align='flex-start'>
+                <FlexBox dir='column' align='flex-start'>
                   <Flex>
                     <Link to={`/media/${image._id}`}>
                       <Text weight='medium' size='large' color='darkblue'>{image.title}</Text>
@@ -143,14 +143,14 @@ class MediaList extends Component {
                     <Button size='tiny' icon='edit' color={colors['light-blue-900']} push='0 20px 0 0'>Edit</Button>
                     <Button onClick={::this.handleDeleteMediaClick(image)} size='tiny' icon='delete' color={colors['red-700']}>Delete</Button>
                   </div>
-                </FlexRow>
+                </FlexBox>
 
                 <div style={{width: 120}}>
-                  <FlexRow justify='flex-start'>
+                  <FlexBox justify='flex-start'>
                     <Text color='darkgrey' size='small' flexAlign='center'>
                       <Icon name='person' fill={colors['blue-grey-400']} size={16} pushRight={3}/>{image.author}
                     </Text>
-                  </FlexRow>
+                  </FlexBox>
                 </div>
 
                 <div style={{width: 100}}>
@@ -180,10 +180,10 @@ class MediaList extends Component {
             flexDirection: 'column'
           }}>
           <div style={{padding: '16px 12px', borderBottom: `0px solid ${colors.grey300}`}}>
-            <FlexRow>
+            <FlexBox>
               <div style={{margin: '0 12px', fontWeight: 400, fontSize: 18}}>Add Images</div>
               <Button icon='close' color={colors.bluegrey300} onClick={::this.closeModal}/>
-            </FlexRow>
+            </FlexBox>
           </div>
 
           <MediaLibrary

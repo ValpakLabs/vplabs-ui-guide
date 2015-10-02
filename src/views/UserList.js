@@ -11,7 +11,7 @@ import colors from '../theme/colors';
 import ScrollView from './ScrollView';
 import DataTable, {Cell} from './DataTable';
 import Icon from './Icon';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Flex from './Flex';
 import Picture from './Picture';
 import Text from './Text';
@@ -30,7 +30,7 @@ class UserList extends Component {
     return (
       <ScrollView>
         <div style={{padding: '0 40px 100px 40px'}}>
-          <FlexRow style={{padding: '20px 0'}}>
+          <FlexBox style={{padding: '20px 0'}}>
             <Text
               size='xxxlarge'
               weight='thin'
@@ -45,7 +45,7 @@ class UserList extends Component {
               color='#FFF'
               onClick={e => this.props.createUser()}>
             </Button>
-          </FlexRow>
+          </FlexBox>
 
 
           <DataTable
@@ -65,7 +65,7 @@ class UserList extends Component {
                     <Gravatar size={60} email={user.email}/>
                   </div>
 
-                  <FlexRow dir='column' align='flex-start'>
+                  <FlexBox dir='column' align='flex-start'>
                     <Flex>
                       <Link to={`/users/${user._id}`}>
                         <Text weight='medium' size='large' color='darkblue'>{user.username}</Text>
@@ -78,7 +78,7 @@ class UserList extends Component {
                       <Button size='tiny' icon='edit' color={colors.lightblue900} push='0 20px 0 0'>Edit</Button>
                       <Button onClick={::this.handleDeleteUserClick(user)} size='tiny' icon='delete' color={colors.red700}>Delete</Button>
                     </div>
-                  </FlexRow>
+                  </FlexBox>
                 </div>
               }/>,
               <Cell renderfn={user =>

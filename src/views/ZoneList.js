@@ -10,7 +10,7 @@ import ScrollView from './ScrollView';
 import Icon from './Icon';
 import Input from './Input';
 import TextArea from './TextArea';
-import FlexRow from './FlexRow';
+import FlexBox from './FlexBox';
 import Flex from './Flex';
 import Dialog from './Dialog';
 import Text from './Text';
@@ -38,8 +38,8 @@ class ZoneList extends Component {
 
         <div style={{padding: '0 40px 100px 40px'}}>
 
-          <FlexRow style={{padding: '20px 0'}}>
-            <FlexRow justify='flex-start'>
+          <FlexBox style={{padding: '20px 0'}}>
+            <FlexBox justify='flex-start'>
               <div style={{width: 180, marginRight: 10}}>
                 <Select
                   name='statusFilter'
@@ -61,7 +61,7 @@ class ZoneList extends Component {
                     {value: 'pending', label: 'Pending Review'}
                   ]}/>
               </div>
-            </FlexRow>
+            </FlexBox>
 
             <Button
               style={{position: 'fixed', bottom: 40, right: 40}}
@@ -72,7 +72,7 @@ class ZoneList extends Component {
               onClick={::this.handleCreateZone}>
             </Button>
 
-          </FlexRow>
+          </FlexBox>
 
           <DataTable
             columns={[
@@ -88,11 +88,11 @@ class ZoneList extends Component {
             rowCells={[
               <Cell renderfn={item =>
                 <div>
-                  <FlexRow justify='flex-start' align='baseline' flex={1} style={{marginRight: '20px'}}>
+                  <FlexBox justify='flex-start' align='baseline' flex={1} style={{marginRight: '20px'}}>
                     <Link to={`/zones/${item._id}`}>
                       <Text weight='medium' size='large' color='darkblue'>{item.title}</Text>
                     </Link>
-                  </FlexRow>
+                  </FlexBox>
                   <Text size='small' lineHeight='18px' color='darkgrey' style={{paddingRight: 20, marginBottom: 12}}>{item.description}</Text>
                   <div className='show-on-hover' style={{lineHeight: 'normal'}}>
                     <Button size='tiny' icon='edit' color={colors.lightblue900} push='0 20px 0 0'>Edit</Button>
@@ -147,16 +147,16 @@ class ZoneList extends Component {
             flexDirection: 'column'
           }}>
           <div style={{padding: '16px 12px', borderBottom: `0px solid ${colors.grey300}`}}>
-            <FlexRow>
+            <FlexBox>
               <div style={{margin: '0 12px', fontWeight: 400, fontSize: 18}}>Create Zone</div>
               <Button icon='close' color={colors.bluegrey300} onClick={::this.closeModal}/>
-            </FlexRow>
+            </FlexBox>
           </div>
 
-          <FlexRow dir='column' style={{background: colors.grey100, width: '100%'}}>
+          <FlexBox dir='column' style={{background: colors.grey100, width: '100%'}}>
 
               <div style={{padding: 40, width: '100%'}}>
-                <FlexRow>
+                <FlexBox>
                   <Flex push='0 10px 24px 0'>
                     <Input
                       name='title'
@@ -173,7 +173,7 @@ class ZoneList extends Component {
                       placeholder='Add a field identifier to be used in templates'
                       onChange={change => this.props.editZone(change)}/>
                   </Flex>
-                </FlexRow>
+                </FlexBox>
                 <TextArea
                   name='description'
                   value={editing.get('description')}
@@ -181,7 +181,7 @@ class ZoneList extends Component {
                   placeholder='Add a short description'
                   onChange={change => this.props.editZone(change)}/>
 
-                <FlexRow justify='flex-end' style={{marginTop: 40}}>
+                <FlexBox justify='flex-end' style={{marginTop: 40}}>
                   <Button
                     push='0 20px 0 0'
                     onClick={::this.handleCancelCreateZone}>
@@ -194,10 +194,10 @@ class ZoneList extends Component {
                     onClick={::this.handleSaveNewZone}>
                     Save
                   </Button>
-                </FlexRow>
+                </FlexBox>
               </div>
 
-          </FlexRow>
+          </FlexBox>
 
         </Modal>
 

@@ -37,6 +37,7 @@ var config = {
     loaders: [
       {test: /\.svg$/, loader: 'raw'},
       {test: /\.scss$/, loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap'},
+      {test: /\.css$/, loader: 'style!css'},
       {test: /\.js$/, exclude: /(node_modules)/, loaders: ['babel']},
       {test: /\.json$/, loader: 'json-loader' },
     ]

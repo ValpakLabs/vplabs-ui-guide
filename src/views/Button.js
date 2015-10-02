@@ -27,6 +27,7 @@ class Button extends React.Component {
     width: null,
     height: null,
     outline: false,
+    preset: null,
     onClick: function() {}
   }
 
