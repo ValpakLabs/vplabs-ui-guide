@@ -6,6 +6,7 @@ import Flex from './Flex';
 import Text from './Text';
 import Code from './Code';
 import InlineCode from './InlineCode';
+import ComponentExample from './ComponentExample';
 import PropTable from './PropTable';
 
 class PageFlex extends React.Component {
@@ -24,58 +25,49 @@ class PageFlex extends React.Component {
           </div>
         </FlexBox>
 
-        <FlexBox align='stretch'>
-          <FlexBox pad='40px 60px' align='stretch' style={{background: colors.white, borderBottom: `1px solid ${colors.grey300}`}}>
-            <FlexBox align='stretch'>
-              <Flex style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
-              <Flex style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
-              <Flex style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
-            </FlexBox>
+        <ComponentExample code={
+`<FlexBox>
+  <Flex>Block</Flex>
+  <Flex>Block</Flex>
+  <Flex>Block</Flex>
+</FlexBox>`
+          }>
+          <FlexBox align='stretch' flex={1}>
+            <Flex style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
+            <Flex style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
+            <Flex style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
           </FlexBox>
-          <Code languages={['html']} style={{borderBottom: `1px solid ${colors.bluegrey800}`}}>
-{`<FlexBox align='stretch'>
-  <Flex>Block</Flex>
-  <Flex>Block</Flex>
-  <Flex>Block</Flex>
-</FlexBox>`}
-          </Code>
-        </FlexBox>
+        </ComponentExample>
 
-        <FlexBox align='stretch'>
-          <FlexBox pad='40px 60px' align='stretch' style={{background: colors.white, borderBottom: `1px solid ${colors.grey300}`}}>
-            <FlexBox align='stretch'>
-              <Flex flex={3} style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
-              <Flex flex={2} style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
-              <Flex style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
-            </FlexBox>
-          </FlexBox>
-          <Code languages={['html']} style={{borderBottom: `1px solid ${colors.bluegrey800}`}}>
-{`<FlexBox align='stretch'>
+        <ComponentExample code={
+`<FlexBox align='stretch'>
   <Flex flex='3 1 auto'>Block</Flex>
   <Flex flex='2 1 auto'>Block</Flex>
   <Flex>Block</Flex>
-</FlexBox>`}
-          </Code> 
+</FlexBox>`
+        }>
+        <FlexBox align='stretch' flex={1}>
+          <Flex flex={3} style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
+          <Flex flex={2} style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
+          <Flex style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
         </FlexBox>
+      </ComponentExample>
 
-        <FlexBox align='stretch'>
-          <FlexBox pad='40px 60px' align='stretch' style={{background: colors.white, borderBottom: `1px solid ${colors.grey300}`}}>
-            <FlexBox>
-              <Flex align='stretch' style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
-              <Flex align='flex-end' style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
-              <Flex align='center' style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
-              <Flex style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
-            </FlexBox>
-          </FlexBox>          
-          <Code languages={['html']} style={{borderBottom: `1px solid ${colors.bluegrey800}`}}>
-{`<FlexBox>
-<Flex align='stretch'>Block</Flex>
-<Flex align='flex-end'>Block</Flex>
-<Flex align='center'>Block</Flex>
-<Flex>Block</Flex>
-</FlexBox>`}
-          </Code>
-        </FlexBox>
+        <ComponentExample code={
+`<FlexBox>
+  <Flex align='stretch'>Block</Flex>
+  <Flex align='flex-end'>Block</Flex>
+  <Flex align='center'>Block</Flex>
+  <Flex>Block</Flex>
+</FlexBox>`
+          }>
+          <FlexBox flex={1} style={{alignSelf: 'stretch'}}>
+            <Flex align='stretch' style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
+            <Flex align='flex-end' style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
+            <Flex align='center' style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
+            <Flex style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</Flex>
+          </FlexBox>
+        </ComponentExample>
 
         <FlexBox justify='center' style={{padding: '60px 0'}}>
           <div style={{width: 1024}}>

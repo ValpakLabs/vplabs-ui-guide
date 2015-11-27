@@ -2,14 +2,18 @@ import React, {PropTypes, Component} from 'react';
 import Color from 'color';
 import colors from '../theme/colors';
 import FlexBox from './FlexBox';
-import highlight from 'highlight.js';
 
-require('../../node_modules/highlight.js/styles/tomorrow-night.css');
+require('../../static/prism.css');
 
 class Code extends Component {
   static defaultProps = {
-    languages: ['js', 'html'],
+    languages: ['jsx'],
     width: 'auto'
+  }
+
+  componentDidMount() {
+    if (typeof Prism !== 'undefined')
+      Prism.highlightElement(this.refs.code);
   }
 
   render() {
@@ -26,24 +30,16 @@ class Code extends Component {
       }
     };
 
-    highlight.configure({
-      languages: this.props.languages
-    });
-
     return (
-      <div style={styles.base}>
-        <pre style={{width: this.props.width}}>
+      <div className='language-jsx' ref='wrap' style={styles.base}>
+        <pre ref='pre' style={{width: this.props.width}}>
           <code
-            style={{color: '#FFF'}}
-            dangerouslySetInnerHTML={{__html: this.highlight(this.props.children)}}/>
+            ref='code'>
+            {this.props.children}
+          </code>
         </pre>
       </div>
     );
-  }
-
-  highlight(code) {
-    const highlighted = highlight.highlightAuto(this.props.children, this.props.languages).value;
-    return highlight.fixMarkup(highlighted);
   }
 
 }

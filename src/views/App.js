@@ -13,7 +13,11 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import Button from './Button';
 
-require('./App.scss');
+require('./App.scss')
+
+const linkStyle = {
+  color: colors.white
+};
 
 class App extends Component {
   render() {
@@ -26,18 +30,20 @@ class App extends Component {
             <Text size='large'><Link to='/'>ValpakLabs UI</Link></Text>
           </Header>
 
-          <Menu itemColor={colors.white} style={{marginTop: 8}}>
+          <Menu itemColor={colors.white} style={{marginTop: 20}}>
             <Text push='12px 0 0 0' size='small' color={colors.bluegrey500} transform='uppercase'>Layout</Text>
-            <Link to='/scrollview'>ScrollView</Link>
-            <Link to='/flexbox'>Flexbox</Link>
-            <Link to='/flex'>Flex</Link>
+            <Link style={linkStyle} to='/scrollview'>ScrollView</Link>
+            <Link style={linkStyle} to='/flexbox'>Flexbox</Link>
+            <Link style={linkStyle} to='/flex'>Flex</Link>
+
             <Text push='12px 0 0 0' size='small' color={colors.bluegrey500} transform='uppercase'>Interaction</Text>
-            <Link to='/buttons'>Buttons</Link>
-            <Link to='/forms'>Forms</Link>
-            <Link to='/flyout'>Flyout</Link>
-            <Link to='/tabs'>Tabs</Link>
+            <Link style={linkStyle} to='/buttons'>Buttons</Link>
+            <Link style={linkStyle} to='/forms'>Forms</Link>
+            <Link style={linkStyle} to='/flyout'>Flyout</Link>
+            <Link style={linkStyle} to='/tabs'>Tabs</Link>
+
             <Text push='12px 0 0 0' size='small' color={colors.bluegrey500} transform='uppercase'>Typography</Text>
-            <Link to='/text'>Text</Link>
+            <Link style={linkStyle} to='/text'>Text</Link>
           </Menu>
         </Sidebar>
 

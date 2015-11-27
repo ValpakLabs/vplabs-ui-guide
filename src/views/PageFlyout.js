@@ -33,12 +33,16 @@ class PageFlyout extends React.Component {
           </FlexBox>
 
           <ComponentExample code={
-`<Button onClick={::this.showFlyout}>Flyout Above</Button>
-<Flyout position='above' ref='myFlyout'>I'm a flyout!</Flyout>
+`
+render() {
+  return (
+    <Button onClick={::this.showFlyout}>Flyout Above</Button>
+    <Flyout position='above' ref='myFlyout'>I'm a flyout!</Flyout>
+  );
+}
 
 // Call the flyout's 'show' method,
 // passing in the clicked element for positioning
-
 showFlyout(e) {
   this.refs.myFlyout(e.currentTarget);
 }

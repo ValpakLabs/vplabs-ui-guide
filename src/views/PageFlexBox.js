@@ -5,6 +5,7 @@ import FlexBox from './FlexBox';
 import Flex from './Flex';
 import Text from './Text';
 import Code from './Code';
+import ComponentExample from './ComponentExample';
 import InlineCode from './InlineCode';
 import {Table, Row, Cell} from './Table';
 
@@ -20,78 +21,65 @@ class PageFlexBox extends React.Component {
         <FlexBox style={heroStyle} align='center'>
           <div>
             <Text color='#FFF' size='xxxlarge' weight='thin'>{`<FlexBox />`}</Text>
-            <Text color='#FFF' size='large' weight='thin'>A flexible layout container for working with the flexbox CSS model.</Text>
+            <Text color='#FFF' size='large' weight='thin'>A layout container for working with the flexbox CSS model.</Text>
           </div>
         </FlexBox>
 
-        <FlexBox align='stretch'>
-          <FlexBox pad='40px 60px' style={{background: colors.white, borderBottom: `1px solid ${colors.grey300}`}}>
-            <FlexBox>
-              <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
-              <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
-              <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
-            </FlexBox>
+        <ComponentExample code={
+`<FlexBox>
+  <div>Block</div>
+  <div>Block</div>
+  <div>Block</div>
+</FlexBox>`
+          }>
+          <FlexBox flex={1} style={{alignSelf: 'stretch'}}>
+            <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
+            <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
+            <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
           </FlexBox>
-          <Code languages={['html']} style={{borderBottom: `1px solid ${colors.bluegrey800}`}}>
-{`<FlexBox>
-  <div>Block</div>
-  <div>Block</div>
-  <div>Block</div>
-</FlexBox>`}
-          </Code>
-        </FlexBox>
+        </ComponentExample>
 
-
-        <FlexBox align='stretch'>
-          <FlexBox pad='40px 60px' align='center' style={{background: colors.white, borderBottom: `1px solid ${colors.grey300}`}}>
-            <FlexBox justify='space-between' align='center'>
-              <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
-              <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
-              <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
-            </FlexBox>
+        <ComponentExample code={
+`<FlexBox justify='space-between' align='center'>
+  <div>Block</div>
+  <div>Block</div>
+  <div>Block</div>
+</FlexBox>`
+          }>
+          <FlexBox flex={1} justify='space-between' align='center'>
+            <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
+            <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
+            <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
           </FlexBox>
-          <Code languages={['html']} style={{borderBottom: `1px solid ${colors.bluegrey800}`}}>
-{`<FlexBox justify='space-between' align='center'>
-  <div>Block</div>
-  <div>Block</div>
-  <div>Block</div>
-</FlexBox>`}
-          </Code>
-        </FlexBox>
+        </ComponentExample>
 
-        <FlexBox align='stretch'>
-          <FlexBox pad='40px 60px' align='center' style={{background: colors.white, borderBottom: `1px solid ${colors.grey300}`}}>
-            <FlexBox dir='column'>
-              <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
-              <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
-              <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
-            </FlexBox>
+        <ComponentExample code={
+`<FlexBox dir='column'>
+  <div>Block</div>
+  <div>Block</div>
+  <div>Block</div>
+</FlexBox>`
+          }>
+          <FlexBox flex={1} dir='column'>
+            <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
+            <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
+            <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
           </FlexBox>
-          <Code languages={['html']} style={{borderBottom: `1px solid ${colors.bluegrey800}`}}>
-{`<FlexBox dir='column'>
-  <div>Block</div>
-  <div>Block</div>
-  <div>Block</div>
-</FlexBox>`}
-          </Code>
-        </FlexBox>
+        </ComponentExample>
 
-        <FlexBox align='stretch'>
-          <FlexBox pad='40px 60px' align='center' style={{background: colors.white, borderBottom: `1px solid ${colors.grey300}`}}>
-            <FlexBox dir='column' align='stretch'>
-              <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
-              <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
-              <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
-            </FlexBox>
+        <ComponentExample code={
+`<FlexBox dir='column' align='stretch'>
+  <div>Block</div>
+  <div>Block</div>
+  <div>Block</div>
+</FlexBox>`
+          }>
+          <FlexBox flex={1} dir='column' align='stretch'>
+            <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
+            <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
+            <div style={{margin: 1, padding: '4px 8px', background: colors.red100}}>Block</div>
           </FlexBox>
-          <Code languages={['html']} style={{borderBottom: `1px solid ${colors.bluegrey800}`}}>
-{`<FlexBox dir='column' align='stretch'>
-  <div>Block</div>
-  <div>Block</div>
-  <div>Block</div>
-</FlexBox>`}
-          </Code>
-        </FlexBox>
+        </ComponentExample>
 
         <FlexBox justify='center' style={{padding: '60px 0'}}>
           <div style={{width: 1024}}>

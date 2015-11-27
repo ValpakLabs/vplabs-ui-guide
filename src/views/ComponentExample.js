@@ -8,7 +8,7 @@ class ComponentExample extends Component {
   static defaultProps = {
     padding: 20,
     dir: 'row',
-    languages: ['js', 'html']
+    languages: ['jsx']
   }
 
   render() {

@@ -11,8 +11,8 @@ class Menu extends Component {
         ...this.props.style
       },
       item: {
-        padding: '3px 12px',
-        color: this.props.itemColor,
+        padding: '4px 20px',
+        display: 'block',
         ...this.props.itemStyle
       }
     };
@@ -20,7 +20,7 @@ class Menu extends Component {
     return (
       <div style={styles.base}>
         {React.Children.map(this.props.children, child => {
-          return <div style={styles.item}>{child}</div>;
+          return React.cloneElement(child, {style: {...styles.item, ...child.props.style}});
         })}
       </div>
     );

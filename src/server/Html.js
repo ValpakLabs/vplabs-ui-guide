@@ -15,6 +15,7 @@ const Html = (props) => {
       <body>
         <div id='content' />
         <script src={webpackStats.script[0]}/>
+        <script src={`${appContext}/prism.js`}/>
       </body>
     </html>
   );
